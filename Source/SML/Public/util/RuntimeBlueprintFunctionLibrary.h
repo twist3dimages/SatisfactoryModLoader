@@ -1,4 +1,3 @@
-// ILikeBanas
 
 #pragma once
 

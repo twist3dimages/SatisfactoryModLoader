@@ -1,4 +1,3 @@
-// ILikeBanas
 
 
 #include "EditorBlueprintFunctionLibrary.h"
