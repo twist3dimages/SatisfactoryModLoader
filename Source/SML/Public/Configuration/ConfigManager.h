@@ -67,27 +67,27 @@ class SML_API UConfigManager : public UEngineSubsystem {
     GENERATED_BODY()
 public:
     /** Reloads mod configurations from disk, optionally saving them back if schema changes */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     void ReloadModConfigurations(bool bSaveOnSchemaChange);
 
     /** Flushes all pending saves and forces manager to write them into filesystem */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     void FlushPendingSaves();
 
     /** Marks configuration as dirty and pending save */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     void MarkConfigurationDirty(const FConfigId& ConfigId);
     
     /** Fills passed struct with a data obtained from active configuration identified by passed config id */
-    UFUNCTION(BlueprintCallable, CustomThunk, meta = (CustomStructureParam = "StructInfo"))
+    UFUNCTION(BlueprintCallable, CustomThunk, Category = "ModConfig" ,meta = (CustomStructureParam = "StructInfo"))
     void FillConfigurationStruct(const FConfigId& ConfigId, UPARAM(Ref) const FDynamicStructInfo& StructInfo);
 
     /** Creates a configuration widget hierarchy for active configuration specified by passed id */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     UUserWidget* CreateConfigurationWidget(const FConfigId& ConfigId, UUserWidget* Outer);
 
     /** Registers a configuration under specified ID. Should be only called on startup for it to load from disk */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     void RegisterModConfiguration(const FConfigId& ConfigId, TSubclassOf<UModConfiguration> Configuration);
 
     void Initialize(FSubsystemCollectionBase& Collection) override;

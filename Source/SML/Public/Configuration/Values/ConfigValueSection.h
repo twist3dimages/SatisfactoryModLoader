@@ -8,15 +8,15 @@ class SML_API UConfigValueSection : public UConfigValue {
     GENERATED_BODY()
 public:
     /** Returns section properties list this state has */
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintPure, Category = "ModConfig")
     TMap<FString, UConfigProperty*> GetProperties() const;
 
     /** Returns configuration state for given property name */
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintPure, Category = "ModConfig")
     UConfigValue* GetValueForProperty(const FString& PropertyName) const;
 
     /** Same as FillConfigStruct, but instead of getting value from passed object it reads passed object AS the value itself */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     void FillConfigStructSelf(const FReflectedObject& ReflectedObject) const;
 
     void InitializedFromProperty_Implementation() override;

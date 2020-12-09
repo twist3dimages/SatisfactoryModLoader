@@ -7,23 +7,23 @@ class SML_API UConfigValueArray : public UConfigValue {
     GENERATED_BODY()
 public:
     /** Returns amount of elements in the array */
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintPure, Category = "ModConfig")
     int32 ElementCount() const;
 
     /** Returns element at the index specified */
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintPure, Category = "ModConfig")
     UConfigValue* GetElement(int32 Index) const;
 
     /** Allocates new default element and adds it into the array */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     UConfigValue* AddNewElement();
 
     /** Remove element at the specified index in the array */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     void RemoveElementAtIndex(int32 Index);
 
     /** Clear the array out so it is empty afterwards */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     void Clear();
     
     virtual FString DescribeValue_Implementation() const override;

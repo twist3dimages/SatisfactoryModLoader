@@ -36,23 +36,23 @@ class SML_API UConfigValue : public UObject {
     GENERATED_BODY()
 public:
     /** Retrieves property object associated with this value */
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintPure, Category = "ModConfig")
     FORCEINLINE UConfigProperty* GetAssociatedProperty() const { return AssociatedProperty; }
     
     /** Describes this value for debugging purposes */
-    UFUNCTION(BlueprintPure, BlueprintNativeEvent)
+    UFUNCTION(BlueprintPure, BlueprintNativeEvent, Category = "ModConfig")
     FString DescribeValue() const;
     
     /** Serializes this state into the raw file format. Please use specified Outer for creating raw value object */
-    UFUNCTION(BlueprintPure, BlueprintNativeEvent)
+    UFUNCTION(BlueprintPure, BlueprintNativeEvent, Category = "ModConfig")
     URawFormatValue* Serialize(UObject* Outer) const;
 
     /** Deserializes passed raw file format value into this state */
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "ModConfig")
     void Deserialize(const URawFormatValue* Value);
 
     /** Fills config struct with data provided in this property */
-    UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+    UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "ModConfig")
     void FillConfigStruct(const FReflectedObject& ReflectedObject, const FString& VariableName) const;
 
     /**
@@ -61,11 +61,11 @@ public:
      * to initialize this value with default state obtained from configuration
      * You can override it to perform early property-sensitive initialization of value
      */
-    UFUNCTION(BlueprintNativeEvent)
+    UFUNCTION(BlueprintNativeEvent, Category = "ModConfig")
     void InitializedFromProperty();
 
     /** Marks this state as dirty, e.g that it needs synchronization with file system */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     virtual void MarkDirty();
 private:
     friend class UConfigProperty;

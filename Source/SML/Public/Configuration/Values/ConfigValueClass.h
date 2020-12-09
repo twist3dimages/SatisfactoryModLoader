@@ -7,15 +7,15 @@ class SML_API UConfigValueClass : public UConfigValue {
     GENERATED_BODY()
 public:
     /** Updates current class value on this state if class is suitable for this state */
-    UFUNCTION(BlueprintCallable)
+    UFUNCTION(BlueprintCallable, Category = "ModConfig")
     void SetClassValue(UClass* ClassValue);
 
     /** Retrieves current class value from state */
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintPure, Category = "ModConfig")
     FORCEINLINE UClass* GetClassValue() const;
 
     /** Returns true if specified class value is valid for this value */
-    UFUNCTION(BlueprintPure)
+    UFUNCTION(BlueprintPure, Category = "ModConfig")
     bool IsClassValueValid(UClass* Class) const;
     
     virtual FString DescribeValue_Implementation() const override;
