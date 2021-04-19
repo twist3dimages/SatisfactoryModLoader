@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "FactoryGame.h" // MODDING EDIT: no PCH
 #include "Online.h"
 #include "FGInputLibrary.h"
 #include "PlayerPresenceState.h"

@@ -372,12 +372,6 @@ protected:
 
 	/** Setter for mDidFirstTimeUse so we can ensure that it is flagged for replication property */
 	void SetDidFirstTimeUse( bool didUse );
-
-	UFUNCTION( BlueprintCallable, Category = "Buildable" )
-	TArray< UStaticMeshComponent* > CreateBuildEffectProxyComponents();
-
-	UFUNCTION( BlueprintCallable, Category = "Buildable" )
-	void DestroyBuildEffectProxyComponents();
 	
 private:
 	/** Create a stat for the buildable */
@@ -635,9 +629,6 @@ private:
 	/** Whether or not this buildable should affect the WorldGrid subsystem */
 	UPROPERTY( EditDefaultsOnly, Category = "Buildable" )
 	bool mShouldModifyWorldGrid;
-
-	UPROPERTY(Transient)
-	TArray< UStaticMeshComponent* > mProxyBuildEffectComponents;
 };
 
 /** Definition for GetDefaultComponents. */

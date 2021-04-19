@@ -508,7 +508,6 @@ public:
 #endif
 	
 private:
-	// TODO consider a weak ptr?
 	/** Cached pointer to the world, made when initialized. */
 	UWorld* mWorldContext;
 	
@@ -534,9 +533,6 @@ private:
 	TQueue< TPair< FPoolHandle*, bool >, EQueueMode::Mpsc > mInstanceStatusToUpdate;
 
 	TQueue< TPair< FPoolHandle*, EPoolInstanceFlags >, EQueueMode::Mpsc > mInstanceFlagsToUpdate;
-
-	// Smart pointer to task graph event.
-	TArray< FGraphEventRef > mStartedGraphTasks;
 	
 	//////////////////////////////////
 	// Buckets
@@ -615,8 +611,6 @@ private:
 	void ResolveUpdates_internal();
 	
 	void ResolveEnvironmentAwareness_internal();
-
-	void CleanupTasks();
 	
 	FORCEINLINE bool IsThreadHealthy() const { return StopTaskCounter.GetValue() == 0; } 
 
@@ -638,10 +632,7 @@ private:
 	void DumpDebug();
 
 	/* Helper to fetch the correct world context. */
-	UWorld* GetWorldContext() const
-	{
-		return mWorldContext;
-	}
+	UWorld* GetWorldContext() const { return mWorldContext; }
 
 	// Scalability
 	int32 CurrentLevel;

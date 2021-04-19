@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "FactoryGame.h" // MODDING EDIT: no PCH
 #include "CoreMinimal.h"
 #include "FGOnlineSessionSettings.h"
 #include "FGOnlineSessionClient.h"

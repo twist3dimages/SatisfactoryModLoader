@@ -31,6 +31,8 @@ public class FactoryGame : ModuleRules
 			"RenderCore"
 		});
         
+		PrivatePCHHeaderFile = "Public/FactoryGame.h";
+        
 		PublicDefinitions.Add( "IS_PUBLIC_BUILD=1" ); 
 	}
 }

@@ -33,9 +33,7 @@ public:
 
 protected:
 	// Begin AActorComponent interface
-	virtual void OnHiddenInGameChanged() override;	
-public:
-	virtual bool ShouldCreateRenderState() const override;
+	virtual void OnHiddenInGameChanged() override;
 	// End AActorComponent interface
 
 private:
