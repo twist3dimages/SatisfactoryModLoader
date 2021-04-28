@@ -35,7 +35,8 @@ public class SMLEditor : ModuleRules
             "GameplayTasks",
             "SlateCore", "Slate", "UMG",
             "InstancedSplines",
-            "Projects"
+            "Projects",
+            "WorkspaceMenuStructure"
         });
         
         PrivateDependencyModuleNames.AddRange(new[] {

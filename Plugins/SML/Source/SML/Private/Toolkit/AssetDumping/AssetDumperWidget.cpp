@@ -1,5 +1,4 @@
 #include "Toolkit/AssetDumping/AssetDumperWidget.h"
-
 #include "Toolkit/AssetDumping/AssetDumpConsoleWidget.h"
 #include "Toolkit/AssetDumping/AssetRegistryViewWidget.h"
 #include "Toolkit/AssetDumping/AssetTypeSerializer.h"

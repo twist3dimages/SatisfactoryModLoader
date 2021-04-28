@@ -11,8 +11,12 @@ void UUserDefinedEnumAssetSerializer::SerializeAsset(TSharedRef<FSerializationCo
 
     //Serialize display name map
     TArray<TSharedPtr<FJsonValue>> DisplayNameMap;
-    for (int32 i = 0; i < Asset->NumEnums(); i++) {
-        DisplayNameMap.Add(MakeShareable(new FJsonValueString(Asset->GetDisplayNameTextByIndex(i).ToString())));
+    for (const TPair<FName, FText>& DisplayName : Asset->DisplayNameMap) {
+    	TSharedPtr<FJsonObject> DisplayNamePair = MakeShareable(new FJsonObject);
+    	DisplayNamePair->SetStringField(TEXT("Name"), DisplayName.Key.ToString());
+    	DisplayNamePair->SetStringField(TEXT("DisplayName"), DisplayName.Value.ToString());
+    	
+        DisplayNameMap.Add(MakeShareable(new FJsonValueObject(DisplayNamePair)));
     }
     Data->SetArrayField(TEXT("DisplayNameMap"), DisplayNameMap);
     END_ASSET_SERIALIZATION
